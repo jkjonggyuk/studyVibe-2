@@ -57,7 +57,7 @@ export default function Hello() {
               </Grid>
             </Grid>
           :
-            <Grid item container component="form" justify="flex-start" spacing={2} onSubmit={() => {setToLocalStorage("username", username); setUsername(getFromLocalStorage("username")); setIsNameEntered(true)}}>
+            <Grid item container justify="flex-start" spacing={2} >
               <Grid item>
                 <Typography className={classes.text} variant="h5" >
                   What is your name?
@@ -67,7 +67,7 @@ export default function Hello() {
                 <TextField type='text' value={username} onChange={(v) => {setUsername(v.target.value);}} />
               </Grid>
               <Grid item>
-                <Button size="small" variant="contained" type="submit">Enter</Button>
+                <Button size="small" variant="contained" onClick={() => {setToLocalStorage("username", username); setUsername(getFromLocalStorage("username")); setIsNameEntered(true)}}>Enter</Button>
               </Grid>
             </Grid>
           }
