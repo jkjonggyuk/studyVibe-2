@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // import { findDOMNode } from 'react-dom'
 // import { hot } from 'react-hot-loader'
-import Slider from '@material-ui/core/Slider';
 
-import { Box, Button, Grid, IconButton, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
 
 import { getFromLocalStorage, setToLocalStorage } from '../service';
 
@@ -39,9 +38,6 @@ export default function Hello() {
 
     useEffect(() => {
       setUsername(getFromLocalStorage("username"));
-      // if (username) {
-      //   setIsNameEntered(true);
-      // }
     }, [])
 
     return (

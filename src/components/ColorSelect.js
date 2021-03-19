@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ColorSelect({ isSelected, onItemClick }) {
-//   const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
   const bgColors = ["#d8d3d6", "#f8fd89", "#b987dc", "#a5f7e1", "#96adfc", "#F8EFBA", "#ffb8b8", "#1e272e"]; 
 

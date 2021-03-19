@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import ReactPlayer from "react-player"
+import { Button, Grid, IconButton, makeStyles, Paper, Slider, TextField, Typography } from '@material-ui/core';
 // import { findDOMNode } from 'react-dom'
 // import { hot } from 'react-hot-loader'
-import Slider from '@material-ui/core/Slider';
 
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
@@ -12,12 +13,8 @@ import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 
 
-import ReactPlayer from "react-player"
-import { Box, Button, Grid, IconButton, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    // flexGrow: 1,
     fontFamily: '"Courier New", Courier, monospace',
     padding: "1em",
     minWidth: 750,
@@ -28,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 800,
   },
   text: {
-    // flexGrow: 1,
     fontFamily: '"Courier New", Courier, monospace',
   },
 }));
@@ -54,52 +50,33 @@ export default function Video() {
     }
     
     const handlePlayPause = () => {
-        setPlaying(!playing);
-      }
+      setPlaying(!playing);
+    }
     
-    const handleToggleControls = () => {
-        setControls(!controls);
-      }
+    const handleVolumeChange = (e, v) => {
+      // setVolume(parseFloat(e.target.value));
+      setVolume(parseFloat(v / 100));
+    }
     
-    const handleToggleLoop = () => {
-        setLoop(!loop);
-      }
-    
-     const handleVolumeChange = (e, v) => {
-        // setVolume(parseFloat(e.target.value));
-        setVolume(parseFloat(v / 100));
-      }
-    
-     const handleToggleMuted = () => {
-        setMuted(!muted);
-      }
+    const handleToggleMuted = () => {
+      setMuted(!muted);
+    }
     
     const handlePlay = () => {
-        // console.log('onPlay')
-        setPlaying(true);
-      }
+      setPlaying(true);
+    }
     
     const handlePause = () => {
-        // console.log('onPause')
-        setPlaying(false);
-      }
+      setPlaying(false);
+    }
 
     const handleNext = () => {
-        ref.current.seekTo(parseFloat(0.99999));
+      ref.current.seekTo(parseFloat(0.99999));
     }
     
     const handleEnded = () => {
-        console.log('onEnded')
-        setPlaying(loop);
-      }
-    
-    const renderLoadButton = (url, label) => {
-        return (
-          <button onClick={() => load(url)}>
-            {label}
-          </button>
-        )
-      }
+      setPlaying(loop);
+    }
 
     return (
       <div className={classes.root} >

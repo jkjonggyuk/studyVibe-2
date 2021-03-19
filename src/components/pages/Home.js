@@ -82,17 +82,12 @@ function Home() {
             }
             <Grid container className={classes.main} style={isVibeSelected ? {} : { display: 'none' }}>
                 <Grid item container justify="center">
-                    {/* <Grid item xs={1}>
-                    </Grid> */}
                     <Grid item className={classes.hello} lg={5} xs>
                         <Hello />
                     </Grid>
-
                     <Grid item className={classes.totalTimer} lg={6} xs>            
                         <TotalTimer />
                     </Grid>
-                    {/* <Grid item xs={1}>
-                    </Grid> */}
                 </Grid>
 
                 <Grid item container justify="center" xs={12}>

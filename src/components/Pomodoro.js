@@ -16,14 +16,9 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: "auto", 
-    // maxWidth: 800,
-    // minHeight: 400,
   },
   text: {
-    // flexGrow: 1,
     fontFamily: '"Courier New", Courier, monospace',
-    // fontWeight: "600",
-    // fontStyle: "italic",
   },
 }));
 
@@ -33,15 +28,12 @@ export default function Pomodoro() {
     const [studyMinute, setStudyMinute] = useState(50);
     const [currentStudyMinute, setcurrentStudyMinute] = useState(studyMinute * 60);
     const [restMinute, setRestMinute] = useState(5);
-    const [currentRestMinute, setcurrentRestMinute] = useState(restMinute);
+    const [currentRestMinute, setcurrentRestMinute] = useState(restMinute * 60);
     const [studying, setStudying] = useState(false);
     const [resting, setResting] = useState(false);
 
 
     useEffect(() => {
-      // if (username) {
-      //   setIsNameEntered(true);
-      // }
       const interval = setInterval(() => {
         if (studying) {
           if (currentStudyMinute <= 0) {
@@ -80,7 +72,6 @@ export default function Pomodoro() {
             </Grid>
             <Grid item >
               <Input
-                // className={classes.input}
                 value={studyMinute}
                 margin="dense"
                 onChange={(e)=>{e.preventDefault(); if(!studying){setStudyMinute(e.target.value); setcurrentStudyMinute(e.target.value * 60);}}}
@@ -99,18 +90,14 @@ export default function Pomodoro() {
             <Grid item style={{height: 300, padding: "1em"}}>
               <Slider
                 orientation="vertical"
-                // defaultValue={100}
                 min={0}
                 max={studyMinute * 60}
                 value={currentStudyMinute}
                 marks={[
-                  // {value:studyMinute, label: studyMinute}, 
                   {value:currentStudyMinute, label: `${Math.floor(currentStudyMinute/60)}:${currentStudyMinute%60 < 10 ? "0" + currentStudyMinute%60 : currentStudyMinute%60}` }
                 ]}
-                // onChange={(e)=>{}}
               />
             </Grid>
-              {/* {currentStudyMinute} / {studyMinute} */}
             <Grid item >
               <Button size="small" variant="contained" onClick={()=>{if(resting){setResting(!resting);}; setStudying(!studying);}}>{studying ? "Stop" : "Start"}</Button>
             </Grid>
@@ -125,7 +112,6 @@ export default function Pomodoro() {
             </Grid>
             <Grid item>
               <Input
-                // className={classes.input}
                 value={restMinute}
                 margin="dense"
                 onChange={(e)=>{e.preventDefault(); if(!resting){setRestMinute(e.target.value); setcurrentRestMinute((e.target.value) * 60);}}}
@@ -144,18 +130,14 @@ export default function Pomodoro() {
             <Grid item style={{height: 300, padding: "1em"}}>
               <Slider
                 orientation="vertical"
-                // defaultValue={100}
                 min={0}
                 max={restMinute * 60}
                 value={currentRestMinute}
                 marks={[
-                  // {value:studyMinute, label: studyMinute}, 
                   {value:currentRestMinute, label: `${Math.floor(currentRestMinute/60)}:${currentRestMinute%60 < 10 ? "0" + currentRestMinute%60 : currentRestMinute%60}` }
                 ]}
-                // onChange={(e)=>{}}
               />
             </Grid>
-              {/* {currentStudyMinute} / {studyMinute} */}
             <Grid item >
               <Button size="small" variant="contained" onClick={()=>{if(studying){setStudying(!studying)}; setResting(!resting);}}>{resting ? "Stop" : "Start"}</Button>
             </Grid>

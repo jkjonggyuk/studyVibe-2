@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import { Button, Grid, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
 
 import { getFromLocalStorage, setToLocalStorage } from '../service';
@@ -29,11 +28,6 @@ const useStyles = makeStyles((theme) => ({
     fontStyle: "italic",
   },
 }));
-
-// const isTimeSet = (etime) => {
-//   if (etime) return true;
-//   else return false;
-// }
 
 export default function TotalTimer() {
     const classes = useStyles();
@@ -66,9 +60,6 @@ export default function TotalTimer() {
         if (hours < 0) {
           hours += 24;
         }
-
-        // return <div>{et.getHours() - currentTime.getHours()} : {et.getMinutes() - currentTime.getMinutes()} </div>
-        // return <div>{et} , {currentTime} </div>
         return <div>-{hours < 10 ? "0" + hours : hours}:{minutes < 10 ? "0" + minutes : minutes}:{seconds < 10 ? "0" + seconds : seconds}</div>
     }
 
