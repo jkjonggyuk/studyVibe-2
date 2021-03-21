@@ -34,6 +34,7 @@ export default function Video() {
 
     // const [url, setUrl] = React.useState("https://soundcloud.com/royalty-free-audio-loops/sets/patreon-music");
     const [url, setUrl] = React.useState("https://soundcloud.com/daftpolymath/sets/royalty-free-lofi");
+    const [customUrl, setCustomUrl] = React.useState("");
     const [playing, setPlaying] = React.useState(true);
     const [controls, setControls] = React.useState(false);
     const [volume, setVolume] = React.useState(0.8);
@@ -97,11 +98,11 @@ export default function Video() {
               loop={loop}
               volume={volume}
               muted={muted}
-              onReady={() => console.log('onReady')}
-              onStart={() => console.log('onStart')}
+              // onReady={() => console.log('onReady')}
+              // onStart={() => console.log('onStart')}
               onPlay={handlePlay}
               onPause={handlePause}
-              onBuffer={() => console.log('onBuffer')}
+              // onBuffer={() => console.log('onBuffer')}
               onSeek={e => console.log('onSeek', e)}
               onEnded={handleEnded}
               onError={e => console.log('onError', e)}
@@ -151,6 +152,9 @@ export default function Video() {
             <Grid item >
               <Button variant="outlined" onClick={() => load("https://soundcloud.com/daftpolymath/sets/royalty-free-lofi")}>LoFi VIBE</Button>
             </Grid>
+            {/* <Grid item >
+              <Button variant="outlined" onClick={() => load("https://soundcloud.com/suricolbert/sets/lofi-4-studying")}>LoFi VIBE II</Button>
+            </Grid> */}
             <Grid item >
               <Button variant="outlined" onClick={() => load("https://soundcloud.com/artyarty03/sets/related-tracks-royalty-free-1")}>Chill VIBE I</Button>
             </Grid>
@@ -172,10 +176,10 @@ export default function Video() {
               </Typography>
             </Grid>
             <Grid item>
-              <TextField ref={input => { ReactPlayer.urlInput = input }} type='text' helperText='YouTube playlist link, SoundCloud link, etc.' />
+              <TextField value={customUrl} onChange={(e)=>setCustomUrl(e.target.value)} type='text' helperText='YouTube playlist link, SoundCloud link, etc.' />
             </Grid>
             <Grid item>
-              <Button size="small" variant="contained" onClick={() => {setUrl(ReactPlayer.urlInput.value); setPlaying(true)}}>Load VIBE</Button>
+              <Button size="small" variant="contained" onClick={() => {if(customUrl.trim()){setUrl(customUrl);} setPlaying(true)}}>Load VIBE</Button>
             </Grid>
           </Grid>
         </Grid>

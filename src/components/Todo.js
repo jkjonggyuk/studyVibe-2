@@ -47,7 +47,7 @@ export default function Todo() {
                 Add TODO Items 
               </Typography>
             </Grid>
-            <Grid xs direction="row" justify="space-around" component="form" item container onSubmit={() => {setToLocalStorage("todo", todoInput); setTodoInput(""); setTodoItems(getFromLocalStorage("todo"))}}>
+            <Grid xs direction="row" justify="space-around" component="form" item container onSubmit={(e) => {e.preventDefault(); setToLocalStorage("todo", todoInput); setTodoInput(""); setTodoItems(getFromLocalStorage("todo"))}}>
               <Grid item xs={8} >
                   <TextField type='text' fullWidth value={todoInput} onChange={(v) => {setTodoInput(v.target.value)}} />
               </Grid>

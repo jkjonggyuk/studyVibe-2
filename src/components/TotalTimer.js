@@ -37,7 +37,6 @@ export default function TotalTimer() {
     const [currentTime, setCurrentTime] = useState(new Date())
 
     useEffect(() => {
-      setEndTime(getFromLocalStorage("endtime"));
       const interval = setInterval(() => {
         setCurrentTime(new Date());
       }, 1000);
@@ -95,10 +94,10 @@ export default function TotalTimer() {
                 </Typography>
               </Grid>
               <Grid item>
-                <TextField type='time' defaultValue="17:30" value={endTime} onChange={(v) => {setEndTime(v.target.value);}} /> 
+                <TextField type='time' fullWidth value={endTime} onChange={(v) => {setEndTime(v.target.value);}} /> 
               </Grid>
               <Grid item>
-                <Button size="small" variant="contained" onClick={() => {setToLocalStorage("endtime", endTime); setEndTime(getFromLocalStorage("endtime")); setIsTimeEntered(true)}}>Enter</Button>
+                <Button size="small" variant="contained" onClick={() => {console.log(endTime); setToLocalStorage("endtime", endTime); setEndTime(getFromLocalStorage("endtime")); setIsTimeEntered(true)}}>Enter</Button>
               </Grid>
             </Grid>
           }
