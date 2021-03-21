@@ -62,6 +62,24 @@ export default function TotalTimer() {
         return <div>-{hours < 10 ? "0" + hours : hours}:{minutes < 10 ? "0" + minutes : minutes}:{seconds < 10 ? "0" + seconds : seconds}</div>
     }
 
+    const getEndTime = () => {
+      const et = endTime.split(":");
+      let endtimeStr = "";
+      if (Number(et[0]) > 12) {
+        if ((Number(et[0]) - 12) < 10) {
+          endtimeStr = "0" + (Number(et[0]) - 12) + ":" + et[1];
+        } else {
+          endtimeStr = (Number(et[0]) - 12) + ":" + et[1];
+        }
+        endtimeStr = endtimeStr + " PM";
+      } else if (Number(et[0]) === 12) {
+        endtimeStr = endTime + " PM";
+      } else {
+        endtimeStr = endTime + " AM";
+      }
+      return endtimeStr;
+    }
+
     return (
       <div className={classes.root} >
         <Paper className={classes.paper} elevation="3">
@@ -72,7 +90,7 @@ export default function TotalTimer() {
               <Grid item container justify="space-between" spacing={0} xs>
                 <Grid item>
                   <Typography className={classes.text} variant="h5">
-                    Until {endTime},
+                    Until {getEndTime()}, 
                   </Typography>
                 </Grid>
                 <Grid item xs={4}>
@@ -94,7 +112,7 @@ export default function TotalTimer() {
                 </Typography>
               </Grid>
               <Grid item>
-                <TextField type='time' fullWidth value={endTime} onChange={(v) => {setEndTime(v.target.value);}} /> 
+                <TextField type='time' value={endTime} onChange={(v) => {setEndTime(v.target.value);}} /> 
               </Grid>
               <Grid item>
                 <Button size="small" variant="contained" onClick={() => {console.log(endTime); setToLocalStorage("endtime", endTime); setEndTime(getFromLocalStorage("endtime")); setIsTimeEntered(true)}}>Enter</Button>

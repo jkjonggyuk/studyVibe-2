@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-// import { findDOMNode } from 'react-dom'
-// import { hot } from 'react-hot-loader'
 import Slider from '@material-ui/core/Slider';
 
-import { Box, Button, Grid, IconButton, Input, makeStyles, Paper, TextField, Typography } from '@material-ui/core';
-
-import { getFromLocalStorage, setToLocalStorage } from '../service';
+import { Button, Grid, Input, makeStyles, Paper, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
