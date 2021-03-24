@@ -1,4 +1,4 @@
-# StudyVIBE 
+# StudyVIBE - Integrated Study Environment
 # https://studyvibe.ml/
 ## The minimalistic Integrated Study Environment solution for your perfect VIBE for studying
 
