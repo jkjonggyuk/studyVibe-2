@@ -1,5 +1,6 @@
 # StudyVIBE 
-## The minimalistic tool for your perfect VIBE for studying
+# https://studyvibe.ml/
+## The minimalistic Integrated Study Environment solution for your perfect VIBE for studying
 
 StudyVIBE helps you set up the personalized environment for you to study. 
 
