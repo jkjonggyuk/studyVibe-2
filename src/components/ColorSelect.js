@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ColorSelect({ isSelected, onItemClick }) {
   const classes = useStyles();
-  const bgColors = ["#d8d3d6", "#f8fd89", "#b987dc", "#a5f7e1", "#96adfc", "#F8EFBA", "#ffb8b8", "#1e272e"]; 
+  const bgColors = ["#d8d3d6", "#f8fd89", "#bbb2e9", "#a5f7e1", "#96adfc", "#F8EFBA", "#ffb8b8", "#1e272e"]; 
 
 
   const handleClick = (event) => {
